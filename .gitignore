@@ -1,0 +1,9 @@
+*.list
+*.gz
+*.txt
+*.pickle
+*.pyc
+.DS_Store
+source
+make.bat
+Makefile
