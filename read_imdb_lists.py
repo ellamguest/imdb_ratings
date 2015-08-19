@@ -34,9 +34,6 @@ def get_writer_lines(filename, header=301, footer=4101660):
                 print i, 'writer', line
     return results
 
-
-
-
 ##### AM I USING THESE?
 
 def get_line_index(line, filename):
@@ -87,20 +84,3 @@ def get_actor_lines2():
 def get_actress_lines():
     return
 
-#########
-
-def get_body2(header, footer, filename):
-    at_header = dropwhile(lambda l: l!= header, filename)
-    after_header = islice(at_header, 1, None)
-    until_footer = takewhile(lambda l: l!= footer, after_header)
-    return list(until_footer)
-
-
-def get_body(filename):
-    fp = open(filename)
-    at_header = dropwhile(lambda l: l.strip() != '----\t\t\t------', fp)
-    after_header = islice(at_header, 1, None)
-    until_footer = takewhile(lambda l: l.strip() != '-'*77, after_header)
-    return list(until_footer)
-
-#director_lines = get_body('directors.list')

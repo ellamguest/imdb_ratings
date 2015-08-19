@@ -13,7 +13,6 @@ actors_file = 'actors.list'
 actresses_file = 'actresses.list'
 directors_file = 'directors.list'
 writers_file = 'writers.list'
-ratings_file = 'ratings.list'
 
 def get_body(filename, header='----\t\t\t------', footer='-'*77 ):
     fp = open(filename)
@@ -28,36 +27,8 @@ def write_body_file(filename, **kwargs):
     new = open(name, 'w+')
     new.writelines(body)
     new.close()
-    
-ratings_list = read_ratings(ratings_file)
 
-def edit_ratings_file():
-    '''reduces lines to name : rating'''
-    write_body_file('ratings.list', header='!New  Distribution  Votes  Rank  Title', footer='-'*78) #creates ratings.txt    
-    fp = open('ratings.txt', 'r+')
-    results = []
-    for line in fp:
-        name = line.split('  ')[-1].strip()
-        rating = line.split('  ')[-2].strip()
-        info = '{0} : {1}\n'.format(name, rating)
-        print info
-        results.append(info)
-        line
-    return results
-    """fp.seek(0)
-    fp.writelines(results)
-    fp.close()"""
-    
-edit_ratings_file()
-    
-
-''' TO INTIALLY WRITE THE FILES:
-write_body_file('actors.list') #creates actors.txt
-write_body_file('actresses.list') #creates actresses.txt
-write_body_file('directors.list') #creates directors.txt
-write_body_file('writers.list', footer='-'*69) #creates writers.txt
-
-'''
+test = get_body(writers_file)
 
 def write_filmography_file(filename):
     fp = open(filename, 'w')    
