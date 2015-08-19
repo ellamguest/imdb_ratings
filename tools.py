@@ -5,6 +5,16 @@ Created on Sat Aug  1 15:07:29 2015
 @author: emg
 """
 
+import cPickle as pickle
+
+def pickle_dump(info):
+    '''Dump info into file info.pickle'''
+    pickle.dump(info, open('{0}.pickle'.format(info), 'w+'))
+    
+def pickle_load(info):
+    '''Load info from file info.pickle'''
+    return pickle.load(open('{0}.pickle'.format(info), 'r')) 
+
 def dict_to_list(d):
     '''converts d to l in format [[k,v,v],[k2,v2,2]'''
     l = []
