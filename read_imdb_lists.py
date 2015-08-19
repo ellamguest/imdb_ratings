@@ -14,7 +14,15 @@ ratings_file = 'ratings.list'
 
 #find better way of determining header/footers?
 
-
+def get_director_lines(filename, header=234, footer=2639293):
+    '''creates list of lines from directors_file'''
+    results = []
+    for i, line in enumerate(open(filename)):
+        if header < i <= footer:
+            results.append(line)
+            if i%1000 == 0:
+                print i, 'director', line
+    return results
 
 def get_writer_lines(filename, header=301, footer=4101660):
     '''creates list of lines from writers_file'''
@@ -29,7 +37,7 @@ def get_writer_lines(filename, header=301, footer=4101660):
 
 
 
-#####
+##### AM I USING THESE?
 
 def get_line_index(line, filename):
     """determining the index of a line in a file
@@ -95,4 +103,4 @@ def get_body(filename):
     until_footer = takewhile(lambda l: l.strip() != '-'*77, after_header)
     return list(until_footer)
 
-director_lines = get_body('directors.list')
+#director_lines = get_body('directors.list')
