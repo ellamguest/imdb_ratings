@@ -7,13 +7,13 @@ Created on Sat Aug  1 15:07:29 2015
 
 import cPickle as pickle
 
-def pickle_dump(info):
+def pickle_dump(info, name):
     '''Dump info into file info.pickle'''
-    pickle.dump(info, open('{0}.pickle'.format(info), 'w+'))
+    pickle.dump(info, open('{0}.pickle'.format(name), 'w+'))
     
-def pickle_load(info):
+def pickle_load(name):
     '''Load info from file info.pickle'''
-    return pickle.load(open('{0}.pickle'.format(info), 'r')) 
+    return pickle.load(open('{0}.pickle'.format(name), 'r')) 
 
 def dict_to_list(d):
     '''converts d to l in format [[k,v,v],[k2,v2,2]'''
@@ -74,3 +74,17 @@ def most_popular(names):
         p.append(n)
     p.sort(reverse=True)
     return p
+
+def get_film_info(film):
+    '''get the film's [rating, director, writer]'''
+    rating = ratings_list[film]
+    director = film_directors[film]
+    writer = film_writers[film]
+    return [rating, director, writer]
+
+def films_info_dict(films):
+    '''make a dict of film : [ratings, director, writer] for films in list'''
+    d = {}
+    for film in films:
+        d[film] = get_film_info(film)
+    return d

@@ -28,7 +28,7 @@ def format_lines(lines):
 pattern = '.*\((?:\d|\?){4}(?:\/[IVXL]+)?\)'
 
 def pull_items(data):
-    print 'Formatting lines...'
+    '''Returns a dict of name : filmography'''
     lines = format_lines(data)
     regex = re.compile(pattern)
     results = {}
@@ -48,7 +48,6 @@ def pull_items(data):
                 results[name].append(item)
         else:
             results[name] = [item]
-        if n%100000 == 0:
-            print n, line
-    info = dict_to_list(results)
-    return info
+    return results
+    '''info = dict_to_list(results)
+    return info'''
