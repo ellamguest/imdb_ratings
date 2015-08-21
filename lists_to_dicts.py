@@ -27,9 +27,9 @@ def dump_body(filename, name, header='----\t\t\t------', footer='-'*77 ):
 
 def dump_pulled_dict(name):
     pdb.set_trace()
-    writers_list = pickle_load(name)
+    raw_data = pickle_load(name)
     pdb.set_trace()
-    info = pull_items(writers_list)
+    info = pull_items(raw_data)
     pdb.set_trace()
     pickle_dump(info, name)
     pdb.set_trace()
@@ -48,3 +48,6 @@ directors_dict = pickle_load('directors_file')'''
 dump_body(actresses_file, 'actresses_file')
 dump_pulled_dict('actresses_file')
 actresses_dict = pickle_load('actresses_file')'''
+#dump_body(actors_file, 'actors_file')
+dump_pulled_dict('actors_file')
+#actors_dict = pickle_load('actors_file')
