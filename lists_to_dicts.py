@@ -24,6 +24,8 @@ def dump_body(filename, name, header='----\t\t\t------', footer='-'*77 ):
     info = list(until_footer)
     pickle_dump(info, name)
     pdb.set_trace()
+    
+'''WOULD COMBINING THESE BE MORE OR LESS EFFICIENT?'''    
 
 def dump_pulled_dict(name):
     pdb.set_trace()
@@ -49,5 +51,5 @@ dump_body(actresses_file, 'actresses_file')
 dump_pulled_dict('actresses_file')
 actresses_dict = pickle_load('actresses_file')'''
 #dump_body(actors_file, 'actors_file')
-dump_pulled_dict('actors_file')
-#actors_dict = pickle_load('actors_file')
+#dump_pulled_dict('actors_file')
+actors_dict = pickle_load('actors_file')
